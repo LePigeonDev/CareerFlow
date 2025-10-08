@@ -4,6 +4,8 @@
 config/info_sensible.xlsx
 *.xlsx
 
+.~lock.excelCandidature.xlsx#
+
 # === Java standard ===
 # Compiled class files
 *.class
