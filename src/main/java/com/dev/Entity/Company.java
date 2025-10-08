@@ -56,7 +56,7 @@ public class Company {
                 String emailContact, String phoneContact, String channelSending, String status,
                 LocalDate relaunchDate, String comment) {
 
-        this.id = ++counter;
+        this.id += counter;
         this.dateApplication = dateApplication;
         this.companyName = companyName;
         this.city = city;
