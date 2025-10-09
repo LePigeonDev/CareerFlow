@@ -1,16 +1,17 @@
 package com.test;
 
+import java.nio.file.Path;
 import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
 
 import com.dev.Entity.Company;
-import com.dev.utils.XlsxWrite;
+import com.dev.utils.CSVExportJackson;
 
 public class MainTest {
-
+    private static final Path _FILE_ = Path.of("src","main","data","csv","application.csv");
     @Test
-    public void testInsertCompany() {
+    public void testInsertCompany() throws Exception {
         Company company = new Company(
                 LocalDate.now(),
                 "EcoMobil",
@@ -27,7 +28,7 @@ public class MainTest {
                 LocalDate.now().plusDays(7),
                 "Premier contact positif");
 
-        XlsxWrite.writeToExcel(company);
+        CSVExportJackson.write(_FILE_, company, Company.class, true);
         System.out.println("✅ Test d’écriture terminé (vérifie ton fichier Excel)");
     }
 }

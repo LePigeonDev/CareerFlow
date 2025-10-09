@@ -1,55 +1,49 @@
 package com.dev.Entity;
 
 import java.time.LocalDate;
-import com.dev.Annotation.ExcelColumn; 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonPropertyOrder({ "id", "dateApplication", "companyName", "city", "webSite", 
+                        "url", "emailCompany", "phoneCompany", "nameContact", "emailContact", 
+                        "phoneContact", "channelSending", "status", "relaunchDate", "comment" })
 public class Company {
     private static int counter = 0;
     
-    @ExcelColumn(header = "ID", order = 0)
     private int id;
 
-    @ExcelColumn(header = "Date_Candidature", order = 1)
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dateApplication;
 
-    @ExcelColumn(header = "Entreprise", order = 2)
     private String companyName;
     
-    @ExcelColumn(header = "Ville", order = 3)
     private String city;
 
-    @ExcelColumn(header = "Site_Web", order = 4)
     private String webSite;
     
-    @ExcelColumn(header = "URL_Offre", order = 5)
     private String url;
 
-    @ExcelColumn(header = "Email_Entreprise", order = 6)
     private String emailCompany;
 
-    @ExcelColumn(header = "Téléphone_entreprise", order = 7)
     private String phoneCompany;
 
-    @ExcelColumn(header = "Contact_Nom", order = 8)
     private String nameContact;
 
-    @ExcelColumn(header = "Contact_Email", order = 9)
     private String emailContact;
 
-    @ExcelColumn(header = "Contact_Téléphone", order = 10)
     private String phoneContact;
 
-    @ExcelColumn(header = "Canal_Envoi", order = 11)
     private String channelSending;
 
-    @ExcelColumn(header = "Status", order = 12)
     private String status;
 
-    @ExcelColumn(header = "Date_Relance", order = 13)
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate relaunchDate;
 
-    @ExcelColumn(header = "Commentaire", order = 14)
     private String comment;
+
+    public Company() {}
 
     public Company(LocalDate dateApplication, String companyName, String city, String webSite,
                 String url, String emailCompany, String phoneCompany, String nameContact,
@@ -187,5 +181,9 @@ public class Company {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public int getCounter() {
+        
     }
 }
