@@ -1,5 +1,4 @@
 # === Fichiers sensibles ===
-mydatabase.db
 
 .~lock.excelCandidature.xlsx#
 
@@ -25,3 +24,4 @@ mydatabase.db
 *.tar.gz
 *.rar
 
+mydatabase.db
