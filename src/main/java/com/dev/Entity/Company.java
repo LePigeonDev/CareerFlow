@@ -1,61 +1,62 @@
 package com.dev.Entity;
 
-import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
-@JsonPropertyOrder({ "id", "dateApplication", "companyName", "city", "webSite", 
-                        "url", "emailCompany", "phoneCompany", "nameContact", "emailContact", 
-                        "phoneContact", "channelSending", "status", "relaunchDate", "comment" })
 public class Company {
-    private static int counter = 0;
-    
-    private int id;
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    private LocalDate dateApplication;
+    // ==== Constantes utiles (colonnes + format date SQLite en TEXT) ====
+    public static final String TABLE_NAME = "Company";
+    public static final String COL_ID = "id";
+    public static final String COL_DATE_APPLICATION = "dateApplication";
+    public static final String COL_COMPANY_NAME = "companyName";
+    public static final String COL_CITY = "city";
+    public static final String COL_WEBSITE = "webSite";
+    public static final String COL_URL_APPLICATION = "urlApplication";
+    public static final String COL_EMAIL_COMPANY = "emailCompany";
+    public static final String COL_PHONE_COMPANY = "phoneCompany";
+    public static final String COL_NAME_CONTACT = "nameContact";
+    public static final String COL_EMAIL_CONTACT = "emailContact";
+    public static final String COL_PHONE_CONTACT = "phoneContact";
+    public static final String COL_CHANNEL_SENDING = "channelSending";
+    public static final String COL_STATUS = "status";
+    public static final String COL_RELAUNCH_DATE = "relaunchDate";
+    public static final String COL_COMMENT = "comment";
+
+    // ==== Champs ====
+    private Integer id; // null avant insertion (AUTOINCREMENT en DB)
+
+    private String dateApplication;
 
     private String companyName;
-    
     private String city;
-
     private String webSite;
-    
-    private String url;
-
+    private String urlApplication;
     private String emailCompany;
-
     private String phoneCompany;
-
     private String nameContact;
-
     private String emailContact;
-
     private String phoneContact;
-
     private String channelSending;
-
     private String status;
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    private LocalDate relaunchDate;
+    private String relaunchDate;
 
     private String comment;
 
-    public Company() {}
+    // ==== Constructeurs ====
+    public Company() {
+    }
 
-    public Company(LocalDate dateApplication, String companyName, String city, String webSite,
-                String url, String emailCompany, String phoneCompany, String nameContact,
-                String emailContact, String phoneContact, String channelSending, String status,
-                LocalDate relaunchDate, String comment) {
-
-        this.id += counter;
+    /** Constructeur pour créer un nouvel enregistrement (id géré par SQLite). */
+    public Company(String dateApplication, String companyName, String city, String webSite,
+            String urlApplication, String emailCompany, String phoneCompany, String nameContact,
+            String emailContact, String phoneContact, String channelSending, String status,
+            String relaunchDate, String comment) {
         this.dateApplication = dateApplication;
         this.companyName = companyName;
         this.city = city;
         this.webSite = webSite;
-        this.url = url;
+        this.urlApplication = urlApplication;
         this.emailCompany = emailCompany;
         this.phoneCompany = phoneCompany;
         this.nameContact = nameContact;
@@ -67,15 +68,20 @@ public class Company {
         this.comment = comment;
     }
 
-    public int getId() {
+    // ==== Getters / Setters ====
+    public Integer getId() {
         return id;
     }
 
-    public LocalDate getDateApplication() {
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getDateApplication() {
         return dateApplication;
     }
 
-    public void setDateApplication(LocalDate dateApplication) {
+    public void setDateApplication(String dateApplication) {
         this.dateApplication = dateApplication;
     }
 
@@ -103,12 +109,12 @@ public class Company {
         this.webSite = webSite;
     }
 
-    public String getUrl() {
-        return url;
+    public String getUrlApplication() {
+        return urlApplication;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setUrlApplication(String urlApplication) {
+        this.urlApplication = urlApplication;
     }
 
     public String getEmailCompany() {
@@ -167,11 +173,11 @@ public class Company {
         this.status = status;
     }
 
-    public LocalDate getRelaunchDate() {
+    public String getRelaunchDate() {
         return relaunchDate;
     }
 
-    public void setRelaunchDate(LocalDate relaunchDate) {
+    public void setRelaunchDate(String relaunchDate) {
         this.relaunchDate = relaunchDate;
     }
 
@@ -183,7 +189,5 @@ public class Company {
         this.comment = comment;
     }
 
-    public int getCounter() {
-        
-    }
+
 }
