@@ -1,8 +1,5 @@
 # === Fichiers sensibles ===
-# Ignore ton fichier Excel avec des infos privées
-/data/secret.xlsx
-config/info_sensible.xlsx
-*.xlsx
+mydatabase.db
 
 .~lock.excelCandidature.xlsx#
 
